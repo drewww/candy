@@ -313,6 +313,7 @@ ul {
 	font-size: 10px;
 	text-align: right;
 	padding-top: 4px;
+	height: 13px;
 }
 
 .message-pane dd {
@@ -321,7 +322,6 @@ ul {
 	margin: 0 0 2px 0;
 	white-space: -o-pre-wrap; /* Opera */
 	word-wrap: break-word; /* Internet Explorer 5.5+ */
-	height: 13px;
 }
 
 .message-pane dd.mention, .message-pane dt.mention {
