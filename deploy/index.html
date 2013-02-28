@@ -13,9 +13,13 @@
 	<script type="text/javascript" src="plugins/replies/candy.js"></script>
 	<link rel="stylesheet" type="text/css" href="plugins/replies/candy.css" />
 	
+	<script type="text/javascript" src="plugins/inline-images/candy.js"></script>
+	<link rel="stylesheet" type="text/css" href="plugins/inline-images/candy.css" />
+	
 	<script type="text/javascript">
 		$(document).ready(function() {
 			CandyShop.Replies.init();
+			// CandyShop.InlineImages.init();
 			Candy.Util.setCookie('candy-nostatusmessages', '1', 365);
 			Candy.init('http-bind/', {
 				core: { debug: false, autojoin:["lobby@conference.jabber.multitudecorp.com"]},
