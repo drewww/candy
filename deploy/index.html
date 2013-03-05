@@ -10,16 +10,17 @@
 	<script type="text/javascript" src="libs/libs.min.js"></script>
 	<script type="text/javascript" src="candy.min.js"></script>
 	
-	<script type="text/javascript" src="plugins/replies/candy.js"></script>
-	<link rel="stylesheet" type="text/css" href="plugins/replies/candy.css" />
+	<script type="text/javascript" src="candy-plugins/video-embed/candy.js"></script>
+	<link rel="stylesheet" type="text/css" href="candy-plugins/video-embed/candy.css" />
 	
-	<script type="text/javascript" src="plugins/inline-images/candy.js"></script>
-	<link rel="stylesheet" type="text/css" href="plugins/inline-images/candy.css" />
+	<script type="text/javascript" src="candy-plugins/replies/candy.js"></script>
+	<link rel="stylesheet" type="text/css" href="candy-plugins/replies/candy.css" />
 	
 	<script type="text/javascript">
 		$(document).ready(function() {
+			CandyShop.VideoEmbed.init();
 			CandyShop.Replies.init();
-			// CandyShop.InlineImages.init();
+
 			Candy.Util.setCookie('candy-nostatusmessages', '1', 365);
 			Candy.init('http-bind/', {
 				core: { debug: false, autojoin:["lobby@conference.jabber.multitudecorp.com"]},
