@@ -16,18 +16,35 @@
 	<script type="text/javascript" src="candy-plugins/replies/candy.js"></script>
 	<link rel="stylesheet" type="text/css" href="candy-plugins/replies/candy.css" />
 	
+	<script type="text/javascript" src="candy-plugins/roomPanel/roomPanel.js"></script>
+  <link rel="stylesheet" type="text/css" href="candy-plugins/roomPanel/default.css" />
+  
+	
 	<script type="text/javascript">
 		$(document).ready(function() {
-			CandyShop.VideoEmbed.init();
-			CandyShop.Replies.init();
+      CandyShop.VideoEmbed.init();
+      CandyShop.Replies.init();
 
+			// pick a random room to seed people into.
+      var rooms = ["alpha", "beta", "gamma"];
+      // var rooms = ["lobby"]
+			var room = rooms[Math.floor(Math.random()*rooms.length)];
+			
 			Candy.Util.setCookie('candy-nostatusmessages', '1', 365);
 			Candy.init('http-bind/', {
-				core: { debug: false, autojoin:["lobby@conference.jabber.multitudecorp.com"]},
+				core: { debug: true, autojoin:[room + "@conference.jabber.multitudecorp.com"]},
 				view: { resources: 'res/', bigRoomThreshold:50}
 			});
 			
-			Candy.Core.connect("jabber.multitudecorp.com");
+      CandyShop.RoomPanel.init({
+        mucDomain: 'conference.jabber.multitudecorp.com',
+        limitOneRoom: document.URL.indexOf("admin")==-1});
+			
+			if(document.URL.indexOf("admin")!=-1) {
+			  Candy.Core.connect();
+			} else {
+        Candy.Core.connect("jabber.multitudecorp.com");
+      }
 		});
 	</script>
 </head>
